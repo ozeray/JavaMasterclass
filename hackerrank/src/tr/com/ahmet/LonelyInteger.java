@@ -2,6 +2,8 @@ package tr.com.ahmet;
 
 import java.io.*;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -26,6 +28,13 @@ public class LonelyInteger {
     }
 
     private static int lonelyinteger(List<Integer> numbers) {
-        return 1;
+        int lonely = 0;
+        for (Integer num : numbers) {
+            if (numbers.stream().filter(i -> Objects.equals(i, num)).count() == 1) {
+                lonely = num;
+                break;
+            }
+        }
+        return lonely;
     }
 }
