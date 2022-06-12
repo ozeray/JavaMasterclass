@@ -26,6 +26,10 @@ public class OuterAndInnerClass {
         this.title = title;
     }
 
+    // Actually, declaring an inner class as public is meaningless.
+    // And when an inner class is declared as private, you cannot access the inner
+    // class from outside the outer class. In this case, you can only instantiate
+    // it inside the outer class.
     public class Inner {
         private int number;
         private int count;
@@ -33,8 +37,9 @@ public class OuterAndInnerClass {
         public Inner(int number, int count) {
             this.number = number;
             this.count = count;
-            OuterAndInnerClass.this.number = 0; // Outer class field access,
-            // if the inner class shadows the same.
+            title = ""; // Outer class field - direct access
+            OuterAndInnerClass.this.number = 0; // Outer class field - indirect access,
+            // because the inner class shadows the same.
         }
 
         public void setNumber(int number) {
