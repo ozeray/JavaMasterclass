@@ -4,8 +4,9 @@ import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import static java.util.stream.Collectors.toList;
+
 import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
 public class SparseArrays {
 

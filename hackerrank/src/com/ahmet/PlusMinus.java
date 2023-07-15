@@ -6,13 +6,14 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
-import static java.util.stream.Collectors.toList;
-
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+
 public class PlusMinus {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(bufferedReader.readLine().trim());
@@ -36,6 +37,7 @@ class PlusMinusUtils {
 
 class PlusMinusWithScanner {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

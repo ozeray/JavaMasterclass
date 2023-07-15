@@ -1,14 +1,13 @@
 package com.ahmet.completejavadevelopercourse;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Inheritance {
 
-    public class Parent {
+    public static class Parent {
 
         protected void test() {
             System.out.println("Test");
@@ -23,7 +22,7 @@ public class Inheritance {
         }
     }
 
-    public class Child extends Parent {
+    public static class Child extends Parent {
 
         @Override
 //        private void test() { // Private not permitted

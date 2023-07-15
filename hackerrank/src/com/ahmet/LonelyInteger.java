@@ -3,7 +3,6 @@ package com.ahmet;
 import java.io.*;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
