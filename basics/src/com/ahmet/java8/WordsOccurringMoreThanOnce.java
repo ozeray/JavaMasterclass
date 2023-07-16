@@ -1,4 +1,4 @@
-package com.ahmet;
+package com.ahmet.java8;
 
 import java.util.*;
 import java.util.function.Function;

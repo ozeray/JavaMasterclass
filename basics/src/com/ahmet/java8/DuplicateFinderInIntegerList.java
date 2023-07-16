@@ -1,4 +1,4 @@
-package com.ahmet;
+package com.ahmet.java8;
 
 import java.util.Arrays;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package com.ahmet;
+package com.ahmet.java8;
 
 public class InterfacePrivateMethodExample {
 
