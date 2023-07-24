@@ -7,10 +7,10 @@ public class PalindromeStringCheck {
         System.out.println(new PalindromeStringCheck().isPalindromeString(s));
 
         s = "amadam";
-        System.out.println(new PalindromeStringCheck().isPalindromeString(s));
+        System.out.println(new PalindromeStringCheck().isPalindrome2(s));
 
         s = "maam";
-        System.out.println(new PalindromeStringCheck().isPalindromeString(s));
+        System.out.println(new PalindromeStringCheck().isPalindrome2(s));
 
         s = "mm";
         System.out.println(new PalindromeStringCheck().isPalindromeString(s));
@@ -27,5 +27,9 @@ public class PalindromeStringCheck {
             }
         }
         return true;
+    }
+
+    private boolean isPalindrome2(String text) {
+        return new StringBuilder(text).reverse().toString().equalsIgnoreCase(text);
     }
 }
