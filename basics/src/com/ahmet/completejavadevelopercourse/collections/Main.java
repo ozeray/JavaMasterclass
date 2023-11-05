@@ -1,9 +1,6 @@
 package com.ahmet.completejavadevelopercourse.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -43,9 +40,68 @@ public class Main {
         Card.printDeck(cards, "List Copy Of Kings", 1);
         // Note: copyOf method throws NullPointerException if given coll is null or if it contains any nulls!
 
+        Collections.shuffle(deck);
+        Card.printDeck(deck, "Shuffled Deck", 4);
+
+        Collections.reverse(deck);
+        Card.printDeck(deck, "Reversed Deck", 4);
+
+        var sortingAlgorithm = Comparator.comparing(Card::rank)
+                                         .thenComparing(Card::suit);
+        deck.sort(sortingAlgorithm);
+//        Collections.sort(deck, sortingAlgorithm); Legacy way of sorting lists
+        Card.printDeck(deck, "Sorted Deck", 13);
+
+        Collections.reverse(deck);
+        Card.printDeck(deck, "Reversed Sorted Deck", 13);
+
+        Card.printDeck(deck.subList(4, 8), "Kings in Deck", 1);
+        List<Card> tens = deck.subList(16, 20);
+        Card.printDeck(tens, "Tens in Deck", 1);
+
+        int tensSublistIndex = Collections.indexOfSubList(deck, tens);
+        System.out.println("Sublist index for tens: " + tensSublistIndex);
+        System.out.println("Deck contains tens? " + deck.containsAll(tens));
+
+        boolean disjoint = Collections.disjoint(deck, tens);
+        System.out.println("Tens and deck are disjoint: " + disjoint);
+        boolean disjoint2 = Collections.disjoint(kingsOfClubs, tens);
+        System.out.println("Kings of Club and Tens are disjoint: " + disjoint2);
+
+        deck.sort(sortingAlgorithm);
+        Card tenOfHearts = Card.getNumericCard(Card.Suit.HEART, 10);
+        int foundIndex = Collections.binarySearch(deck, tenOfHearts, sortingAlgorithm);
+        System.out.println("binarySearch: foundIndex = " + foundIndex);
+        System.out.println("indexOf: foundIndex = " + deck.indexOf(tenOfHearts));
+        System.out.println("Found = " + deck.get(foundIndex));
+
+//        Card tenOfClubs = Card.getNumericCard(Card.Suit.CLUB, 10);
+//        Collections.replaceAll(deck, tenOfClubs, tenOfHearts);
+//        Card.printDeck(deck.subList(32, 36), "Tens row", 1);
+
+//        System.out.println("# of Ten of Hearts in the deck: " + Collections.frequency(deck, tenOfHearts));
+
+        System.out.println("Min: " + Collections.min(deck, sortingAlgorithm));
+        System.out.println("Max: " + Collections.max(deck, sortingAlgorithm));
+
+        var sortBySuit = Comparator.comparing(Card::suit)
+                                   .thenComparing(Card::rank);
+        deck.sort(sortBySuit);
+        Card.printDeck(deck, "Deck Sorted By Suit, Rank", 4);
+
+        List<Card> clubs = new ArrayList<>(deck.subList(0, 13));
+        Collections.rotate(clubs, 2);
+        System.out.println("UnRotated: " + deck.subList(0, 13));
+        System.out.println("Rotated 2: " + clubs);
+
+        clubs = new ArrayList<>(deck.subList(0, 13));
+        Collections.rotate(clubs, -2);
+        System.out.println("UnRotated: " + deck.subList(0, 13));
+        System.out.println("Rotated -2: " + clubs);
+
     }
 
 //    Stackoverflow:
 //    An unmodifiable collection is often a wrapper around a modifiable collection which other code may still have access to. So while you can't make any changes to it if you only have a reference to the unmodifiable collection, you can't rely on the contents not changing.
-//    An immutable collection guarantees that nothing can change the collection any more. If it wraps a modifiable collection, it makes sure that no other code has access to that modifiable collection. Note that although no code can change which objects the collection contains references to, the objects themselves may still be mutable - creating an immutable collection of StringBuilder doesn't somehow "freeze" those objects.
+//    An immutable collection guarantees that nothing can change the collection anymore. If it wraps a modifiable collection, it makes sure that no other code has access to that modifiable collection. Note that although no code can change which objects the collection contains references to, the objects themselves may still be mutable - creating an immutable collection of StringBuilder doesn't somehow "freeze" those objects.
 }

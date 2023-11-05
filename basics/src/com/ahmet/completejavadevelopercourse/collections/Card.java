@@ -55,7 +55,7 @@ public record Card(Suit suit, String face, int rank) {
     }
 
     public static void printDeck(List<Card> deck, String description, int rows) {
-        System.out.println("--------------------------");
+        System.out.println("-----------------------");
         if (description != null) {
             System.out.println(description);
         }
@@ -63,7 +63,7 @@ public record Card(Suit suit, String face, int rank) {
         for (int i = 0; i < rows; i++) {
             int startIndex = i * cardsInRow;
             int endIndex = startIndex + cardsInRow;
-            deck.subList(startIndex, endIndex).forEach(card -> System.out.print(card));
+            deck.subList(startIndex, endIndex).forEach(card -> System.out.printf("%-7s", card));
             System.out.println();
         }
     }
