@@ -1,5 +1,6 @@
 package com.ahmet.completejavadeveloper.math;
 
+import java.util.Random;
 import java.util.stream.IntStream;
 
 public class MathDemo {
@@ -18,7 +19,8 @@ public class MathDemo {
         System.out.println((char) (65 + 25));
         System.out.println((char) 97);
         System.out.println((char) (97 + 25));
-        System.out.println((char) (Math.random() * 26 + 65)); // Random char A-Z
-        System.out.println((char) (Math.random() * 26 + 97)); // Random char a-z
+        System.out.printf("%1$d = %1$c%n", (int) (Math.random() * 26 + 65)); // Random char A-Z
+        System.out.printf("%1$d = %1$c%n", (int) (Math.random() * 26 + 97)); // Random char a-z
+        System.out.printf("%1$d = %1$c%n", new Random().nextInt(97, 123)); // Random char a-z
     }
 }
