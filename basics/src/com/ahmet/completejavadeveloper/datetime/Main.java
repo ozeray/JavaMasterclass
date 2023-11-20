@@ -3,8 +3,12 @@ package com.ahmet.completejavadeveloper.datetime;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.TemporalAmount;
+import java.util.Locale;
 
 public class Main {
 
@@ -95,11 +99,11 @@ public class Main {
         System.out.println(ZoneId.systemDefault());
         System.out.println("Number of TZs=" + ZoneId.getAvailableZoneIds().size());
 
-        ZoneId.getAvailableZoneIds().stream()
-                .sorted()
-                .filter(s -> s.startsWith("America"))
-                .map(ZoneId::of)
-                .forEach(z -> System.out.println(z.getId() + ": " + z.getRules()));
+//        ZoneId.getAvailableZoneIds().stream()
+//                .sorted()
+//                .filter(s -> s.startsWith("America"))
+//                .map(ZoneId::of)
+//                .forEach(z -> System.out.println(z.getId() + ": " + z.getRules()));
 
         LocalDateTime dt = LocalDateTime.now();
         System.out.println(dt);
@@ -107,7 +111,44 @@ public class Main {
         System.setProperty("user.timezone", "America/Los_Angeles");
         System.out.println(ZoneId.systemDefault()); // Will print Europa/Istanbul (already cached for property is set)
 
-        System.out.println(Instant.now());
+        Instant instantNow = Instant.now();
+        System.out.println(instantNow);
+        DateTimeFormatter dtfZone = DateTimeFormatter.ofPattern("z:zzzz");
+        for (ZoneId zoneId : ZoneId.getAvailableZoneIds().stream().filter(z -> z.startsWith("Europe/G")).map(ZoneId::of).toList()) {
+            System.out.println(zoneId);
+            System.out.println(instantNow.atZone(zoneId));
+            System.out.println("\t" + instantNow.atZone(zoneId).format(dtfZone));
+            System.out.println("\t" + zoneId.getRules().getDaylightSavings(instantNow));
+            System.out.println("\t" + zoneId.getRules().isDaylightSavings(instantNow));
+        }
 
+        Instant dobInstance = Instant.parse("2020-07-02T18:54:22.34Z");
+        ZoneId istanbulZone = ZoneId.of("Europe/Istanbul");
+        System.out.println(dobInstance.atZone(istanbulZone) + "\n" +
+                "\t" + istanbulZone.getDisplayName(TextStyle.FULL, Locale.of("tr", "TR")) +
+                " (" + instantNow.atZone(istanbulZone).format(dtfZone) + ")\n" +
+                "\t" + istanbulZone.getRules().getDaylightSavings(instantNow) + " : " + istanbulZone.getRules().getOffset(instantNow));
+        ZonedDateTime dob = ZonedDateTime.ofInstant(dobInstance, istanbulZone);
+        System.out.println(dob.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)));
+        LocalDateTime dobSydney = LocalDateTime.ofInstant(dobInstance, ZoneId.of("Australia/Sydney"));
+        System.out.println(dobSydney.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)));
+        ZonedDateTime dobNewYork = dob.withZoneSameInstant(ZoneId.of("America/New_York"));
+        System.out.println(dobNewYork);
+        System.out.println("Time passed after Epoch time: " + Period.between(LocalDate.EPOCH, dob.toLocalDate()));
+        System.out.println("Time passed after Epoch time: " + Duration.between(Instant.EPOCH, dob.toInstant().atOffset(ZoneOffset.UTC)));
+        LocalDateTime dob2 = dobSydney.plusYears(2).plusMonths(4).plusDays(4).plusHours(3).plusMinutes(22).plusSeconds(2);
+        System.out.println(dob2);
+
+        for (ChronoUnit u : ChronoUnit.values()) {
+            if (u.isSupportedBy(LocalDate.EPOCH)) {
+                long val = u.between(LocalDate.EPOCH, dob2);
+                System.out.println(u + " past= " + val);
+            } else {
+                System.out.println("-- Not supported: " + u);
+            }
+        }
+
+        System.out.printf("First day of next month: %1$tD %1$tT %n", ZonedDateTime.now().with(TemporalAdjusters.firstDayOfNextMonth()));
+        System.out.printf("First day of next month: %1$tF %1$tr %n", ZonedDateTime.now().with(TemporalAdjusters.firstDayOfNextMonth()));
     }
 }
