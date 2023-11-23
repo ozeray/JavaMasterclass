@@ -3,6 +3,8 @@ package com.ahmet.completejavadeveloper.regex;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.MatchResult;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -12,7 +14,7 @@ public class Main {
         String testString = "Anyone can Learn abc's, 123's, and any regular expression";
         String replacement = "(-)";
         String[] patterns = {"[abc]", "[123]", "[A]", "ab|bc", "a|b|c", "[a-z]", "[0-9]", "[A-Z]", "[a-zA-Z]",
-        "[a-zA-Z]*", "[0-9]*", "[0-9]+", "[A-Z]*", "[0-9]{2}", "[a-zA-Z]*$", ".$", ".*$", "^.*", "^a", "n$",
+        "[a-zA-Z]*", "[0-9]*", "[0-9]+", "[A-Z]*", "[0-9]{2}", "[a-zA-Z]*$", ".$", ".*$", "^.*", "^a", "^[aA]", "n$",
         "^[a-zA-Z]", "^[a-zA-Z]*", "^[a-zA-Z]{3}", "[aA]ny", "[aA]ny\\b"};
 
         for (String pattern : patterns) {
@@ -84,6 +86,99 @@ public class Main {
         System.out.println("I'm a new student.".matches(regEx));
         System.out.println("Am i a new student?".matches(regEx));
         System.out.println("I love being a new L.P.A. student!".matches(regEx));
+
+        String sentence = "I like B.M.W. motorcycles.";
+        boolean matched = Pattern.matches("[A-Z].*[.]", sentence);
+        System.out.println(matched + " : " + sentence);
+
+        Pattern firstPattern = Pattern.compile("[A-Z].*[.]");
+        var matcher = firstPattern.matcher(sentence);
+        System.out.println(matcher.matches() + " : " + sentence);
+        System.out.println(sentence.length());
+        System.out.println(matcher.end());
+
+        System.out.println(matcher.lookingAt() + " : " + sentence);
+        System.out.println(matcher.end());
+
+        Pattern secondPattern = Pattern.compile("[A-Z].*?[.]");
+        var matcherReluctant = secondPattern.matcher(sentence);
+        System.out.println(matcherReluctant.lookingAt() + " : " + sentence.substring(0, matcherReluctant.end()));
+        System.out.println(matcherReluctant.end() );
+        System.out.println("Group:" + matcherReluctant.group());
+
+        System.out.println("Second match: " + matcherReluctant.find());
+        System.out.println("Second matched string: " + sentence.substring(matcherReluctant.start(), matcherReluctant.end()));
+        System.out.println("Group:" + matcherReluctant.group());
+
+        matcherReluctant.reset();
+        System.out.println("Second match after reset: " + matcherReluctant.find());
+        System.out.println("Second matched string after reset: " + sentence.substring(matcherReluctant.start(), matcherReluctant.end()));
+        System.out.println("Group:" + matcherReluctant.group());
+
+        String htmlSnippet = """
+                <H1>My Heading</H1>
+                <h2>Sub-heading</h2>
+                <p>This is a paragraph about something.</p>
+                <p>This is another paragraph about something else.</p>
+                <h3>Summary</h3>
+                """;
+
+//        Pattern headerPattern = Pattern.compile("<[hH](\\d)>(.*)</[hH]\\d>");
+        Pattern headerPattern = Pattern.compile("<[hH](?<level>\\d)>(?<text>.*)</[hH]\\d>");
+        Matcher headerMatcher = headerPattern.matcher(htmlSnippet);
+        while (headerMatcher.find()) {
+            System.out.println("group: " + headerMatcher.group());
+            System.out.println("group0: " + headerMatcher.group(0));
+            System.out.println("group1: " + headerMatcher.group(1));
+            System.out.println(headerMatcher.group(1) + " " + headerMatcher.group(2));
+            System.out.println(headerMatcher.group("level") + " " + headerMatcher.group("text"));
+            System.out.println(headerMatcher.start("level") + " " + headerMatcher.end(2));
+        }
+
+        System.out.println("------------------------");
+        headerMatcher.reset(); // Required, as find() method was used before
+        headerMatcher.results().forEach(mr -> System.out.println(mr.group(1) + " " + mr.group(2)));
+
+        String tabbedText = """
+                header1\theader2\theader3
+                1\t2\t3
+                4\t5\t6
+                """;
+        tabbedText.lines().flatMap(l -> Pattern.compile("\\t").splitAsStream(l)).forEach(System.out::println);
+
+        System.out.println("-------------------------");
+        headerMatcher.reset();
+        String updatedSnipped = headerMatcher.replaceFirst("First Header");
+        System.out.println(updatedSnipped);
+        System.out.println(headerMatcher.start() + " " + headerMatcher.end());
+        System.out.println("Old header: " + headerMatcher.group(2));
+
+        String tagReplaced = headerMatcher.replaceAll(mr -> "<em>" + mr.group(2) + "</em>");
+        System.out.println(tagReplaced);
+
+        // Change RegEx to use back reference:
+        headerMatcher.usePattern(Pattern.compile("<([hH]\\d)>(.*)</\\1>"));
+
+        headerMatcher.reset();
+        System.out.println("-------------------");
+        System.out.println("Using backreference:\n" + headerMatcher.replaceFirst("<em>$2</em>"));
+        String tagReplacedWithBR = headerMatcher.replaceAll("<em>$2</em>");
+        System.out.println(tagReplacedWithBR);
+
+        headerMatcher.reset();
+        System.out.println("-------------------------");
+        StringBuilder sb = new StringBuilder();
+        int index = 1;
+        while (headerMatcher.find()) {
+            headerMatcher.appendReplacement(sb,
+                    switch (headerMatcher.group(1).toLowerCase()) {
+                        case "h1" -> "<head>$2</head>";
+                        case "h2" -> "<em>$2</em>";
+                        default -> "<$1>" + index++ + ". $2</$1>";
+                    });
+        }
+        headerMatcher.appendTail(sb);
+        System.out.println(sb);
     }
 
     private static String format(String string, String... args) {
