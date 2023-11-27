@@ -1,0 +1,11 @@
+Student Id,Country Code,Enrolled Month,Enrolled Year,Age,Gender,Experienced,Course Code,Engagement Month,Engagement Year,Engagement Type
+1,IN,5,2023,82,F,false,JMC,JANUARY,2023,Lecture 12
+1,IN,5,2023,82,F,false,PYC,JANUARY,2023,Lecture 1
+2,US,4,2023,76,M,false,JMC,DECEMBER,2023,Lecture 11
+2,US,4,2023,76,M,false,PYC,NOVEMBER,2023,Lecture 12
+3,US,12,2018,86,U,false,JMC,JANUARY,2020,Lecture 10
+3,US,12,2018,86,U,false,PYC,OCTOBER,2021,Lecture 5
+4,GB,9,2015,33,U,false,JMC,OCTOBER,2023,Lecture 10
+4,GB,9,2015,33,U,false,PYC,MARCH,2020,Lecture 1
+5,IN,1,2021,35,F,true,JMC,JANUARY,2021,Lecture 11
+5,IN,1,2021,35,F,true,PYC,AUGUST,2022,Lecture 13
