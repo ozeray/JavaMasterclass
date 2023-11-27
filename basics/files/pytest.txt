@@ -1,0 +1,61 @@
+Today we’re delighted to be chatting with Brian Okken again. If you missed the last time, you can check out our webinar on Productive Testing with PyCharm at your convenience. Brian wears many hats including being a host for @PythonBytes, @PythonPeople and @PythonTest podcasts. Brian is also the author of Python Testing with pytest and has recently launched his new pytest course. Mostly, he spends his free time telling people they should write good, clean automated tests, specifically using pytest.
+
+Tell us a little more about yourself, Brian.
+I’m a software engineer and engineering manager. I work with both Python and C++, and develop embedded software for test and measurement equipment, mostly with RF measurements surrounding WiFi and cellular communications.
+
+I live in Portland, Oregon. I’m a father of daughters. I like to garden, but my wife’s the real plant expert. My wife and I are also antique dealers.
+
+You’re Python’s testing storyteller. When did you first get involved in the pytest community?
+My first pytest blog article was in January of 2013. I had written a custom x-unit style function-based test framework for work. As the functionality of the custom framework grew, I started researching off-the-shelf alternatives. And at the time, the blog posts and such about unittest and pytest was all kinda old, and some of them were wrong. So I started the blog (then pythontesting.net) to do an apples-to-apples comparison of unittest, pytest, and at the time, also nose and doctest.
+
+I ended up falling in love with pytest. I also got great feedback from pytest core devs on the blog posts. I originally turned a bunch of blog posts into an ebook. I then decided to write Python Testing with pytest.
+
+During both editions of the book, pytest core devs helped out a ton as technical reviewers.
+
+You also run a podcast called Test & Code. How long have you been doing that, and how’s it going?
+Well, that’s been changed to “Python Test”, but it currently still resides at testandcode.com. I started that in 2015, originally “The Python Testing Podcast”. I guess the new name is going back-to-roots, a bit. The podcast is great, and I consistently get feedback from people telling me they like the refreshing perspective I have on testing.
+
+I really wanted to reach people that were both writing software and writing tests, as the quality of material around writing great tests as a developer is not great. There’s just not that much. There’s “how to do toy problems with TDD”, and there’s “how to be a QA engineer”. But there’s not a lot of material around pragmatically using automated tests to make writing software easier. I was trying to fill a bit of that hole.
+
+But then it became just fun to talk to people and learn about tools and techniques. I’ve been fascinated by the packaging story around Python, so there are quite a few episodes around pyproject.toml and flit and such. I should probably talk to the Hatch people sometime.
+
+I started podcasting and public speaking around the same time, and those activities really made it feel like I was giving back to the community and becoming more involved in it.
+
+Your video course is rolling out now. Can you tell us a little bit more about that course?
+During re-writing the pytest book, I kept asking myself “Would I teach someone this if they were sitting right next to me?” and “Would I teach this now? or wait till later?”. So I had that thought process of imagining I were sitting with someone, teaching them about testing and pytest.
+
+The original idea for the course is to go one step further, to go through all of the topics in the same order as the book and teach as I would if we were sitting together with a computer. It’s growing to something more though. I’m able to include extras.
+
+Here are a few examples:
+
+I’ve included a video showing a couple of bash functions I’ve put in my .bashrc/.zshrc to help easily create and activate virtual environments.
+I’ve had people ask me to go into more depth on TDD and BDD, so I plan on adding sections for those.
+I use a `dataclass` in the application being tested in the course, and use the `field` attribute `compare=False`, but really don’t talk about it much. A course student has asked for more info on this, so I’m planning on a `dataclass` video to cover some basics.
+Most importantly, a video showing how awesome it is to run pytest tests using PyCharm.
+
+I’m also including any more recent best practices I’ve developed in the last couple of years. And I’ll be able to keep the code repo up to date with current versions of Python and pytest.
+
+What are your top 3 features of pytest?
+Ah. A relatively easy one. Except it’s hard to stick to three.
+
+Fixtures. Separating setup and teardown out of test functions makes test code so much easier to read and tremendously easier to reason about.
+Parametrization. With a little bit of work, you can turn one test function into tons of test cases with parametrization. It can feel like table-driven testing, but the table is right there next to the test code. It’s awesome.
+Plugins. People have shared some awesome extensions to make tons of stuff easier. There are special purpose plugins like pytest-django, to help test Django applications, and general purpose ones, like pytest-cov for integrating test coverage, and pytest-mock, to help make mocking easier.
+Ok. There are two more I have to include that don’t seem like they should count against the 3.
+
+Plain assert statements. pytest uses Python’s built in assert statements. Under the hood, pytest uses a rewriting mechanism to turn assert statements into calls to helper functions so that we get super great tracebacks that are actually helpful. But developers using pytest don’t have to care about the implementation. They just use assert and it works.
+You can just use functions. Most test frameworks, such as unittest, are x-unit style, and require devs to derive from a base class and put all tests as methods in classes. But lots of people don’t write a lot of classes, so it’s weird. Simple test functions are way easier, especially when you’re starting out writing tests. You can use classes for tests. But you don’t have to.
+Command line or IDE?
+Both! I really do use both almost every day. pytest has powerful command line flags and utilizing them is key to getting the most out of pytest. Luckily, when I’m using PyCharm, I have access to command line flags easily. PyCharm’s run configuration editor is just a couple of clicks away and I can add command line flags for my entire session, or edit them for an individual test run. It also has a special callout for keywords, which are great for zooming into just the tests you care about.
+
+Could you also share a bit about your pytest course, such as what it covers/what to expect and what students can expect to get out of it?
+The course is split into 3 parts:
+
+pytest Primary Power covers the superpowers of pytest you need to know to write effective tests in pytest. These include fixtures, parametrization, and markers that you’ll use every day. You can take this first part and write some great test code with nothing else.
+pytest Working with Projects talks about using pytest with software projects, and includes stuff like incorporating code coverage and CI, as well as setting up pytest to test scripts and applications. This part will be great when you take your learnings from part one and apply them to your own software projects.
+pytest Booster Rockets (coming soon). I know you’re going to love pytest, and you’ll want to know more. This third part covers plugins, not just using other people’s, but how to build your own plugins. I also cover some advanced parametrization techniques.
+The course covers everything that the book does. But it also goes further. I’ve learned a lot about maintaining software projects since the book came out, and there are new fun toys, like Hatch for packaging, that I’ll get to add sections on for the course.
+
+I’m also including a community package, with a private Slack channel and other ways to be able to ask questions if you get stuck.
+
+I really want you to succeed. And I know you will with this course. And if something is still confusing, reach out.

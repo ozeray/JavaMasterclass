@@ -1,0 +1,38 @@
+This summer we announced a new AI Assistant for IntelliJ-based IDEs which integrates the power of large language models into the daily workflows of developers. Since then, we’ve expanded the list of supported use cases and enhanced existing features.
+
+The AI Assistant is still in the technical preview stage and is available only to a limited number of people. We are working on making it available for everyone and will publish more information later. Please refer to our FAQ in case you have any questions.
+
+We’d like to share the new functionality available in AI Assistant released with the 2023.3 EAP of JetBrains IDEs and gather your feedback.
+
+In-Editor Code Generation
+Now the code generation AI Action is available right in the editor. Press Ctrl + \ on PC or Cmd + \ on Mac or select Generate code action from the AI Action intentions menu and you will see an inline text field where you can insert your prompt.
+
+
+After code is generated, you can accept the suggestion, improve it, regenerate it, or cancel the generation.
+
+If you decide to refine the generation, click Specify and add new requirements.
+
+
+AI Assistant will regenerate the code while taking into account the new specifications.
+
+
+Context-aware Smart Chat
+Now, AI Chat can answer questions related to your project without requiring you to copy and paste relevant code fragments. It will be able to answer questions like “Explain the code in the opened file”, “What is the code in MyClass.java doing?”, “Rewrite the class MyClass as abstract”, “Summarize my local changes”, and much more!
+
+
+Project-aware AI Actions
+AI Actions are also getting smarter! Explain Code, Suggest Refactoring, Find Potential Problems, Write Documentation, and custom prompts from the Prompt Library now take into account an extended context which helps them provide better results. For example, if you use Explain Code on a method, then the containing class, its usages, and relevant references from the function body will be added to the query.
+
+
+You can see which additional files were used to generate the answer by pressing the paperclip icon at the top of the message.
+
+Refactorings Diff View
+It’s not always clear which part of the code was changed by an LLM. To make this workflow easier, we’ve integrated a new diff view directly in LLM code suggestions. Click on See Diff and Apply to open it and decide which parts of the generated code should be applied.
+
+
+Conclusion
+If you have access to JetBrains AI Service, please give these new features a try and share your thoughts! You can do that with the Share your feedback link in the AI Assistant tool window or by submitting feature requests or bug reports in the AI Assistant YouTrack project.
+
+If you do not have access yet, we appreciate your patience and are happy to hear your thoughts on these features.
+
+Thank you and stay tuned for more updates!
