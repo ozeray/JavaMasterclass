@@ -1,6 +1,5 @@
 package com.ahmet.completejavadeveloper.locales;
 
-import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,7 +8,6 @@ import java.time.format.FormatStyle;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Main {
 

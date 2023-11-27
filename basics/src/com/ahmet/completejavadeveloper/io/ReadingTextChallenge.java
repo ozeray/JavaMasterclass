@@ -1,12 +1,17 @@
 package com.ahmet.completejavadeveloper.io;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class ReadingTextChallenge {
@@ -18,6 +23,9 @@ public class ReadingTextChallenge {
         printTokensWithoutPunctuation(path);
         printTokensWithoutPunctuationLongThanFiveChars(path);
         printTopTenTokens(path);
+
+        printNumberOfWords(path);
+        printTopTenTokensUsingBufferedReader(path);
     }
 
     private static void printTokens(Path path) {
@@ -68,4 +76,47 @@ public class ReadingTextChallenge {
             e.printStackTrace();
         }
     }
+
+    private static void printNumberOfWords(Path path) {
+        try {
+            System.out.println("---------------------------------");
+            BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
+
+            Pattern pattern = Pattern.compile("\\p{javaWhitespace}+");
+            /*
+            System.out.printf("%,d words in file%n",
+                    br.lines()
+//                            .flatMap(pattern::splitAsStream)
+                            .flatMap(line -> Arrays.stream(line.split(pattern.toString())))
+                            .count()); */
+
+            System.out.printf("%,d words in file%n",
+                    br.lines()
+                            .mapToLong(line -> line.split(pattern.toString()).length)
+                            .sum());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void printTopTenTokensUsingBufferedReader(Path path) {
+        try {
+            System.out.println("------------------------------");
+            BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
+            br.lines()
+                    .flatMap(s -> Pattern.compile("\\p{javaWhitespace}+").splitAsStream(s))
+                    .map(w -> w.replaceAll("\\p{Punct}", ""))
+                    .filter(w -> w.length() > 5)
+                    .map(String::toLowerCase)
+                    .collect(Collectors.groupingBy(w -> w, Collectors.counting()))
+                    .entrySet()
+                    .stream()
+                    .sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
+                    .limit(10)
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

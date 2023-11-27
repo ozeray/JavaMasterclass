@@ -1,6 +1,8 @@
 package com.ahmet.completejavadeveloper.io;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ReadingFiles {
     public static void main(String[] args) {

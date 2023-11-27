@@ -1,7 +1,6 @@
 package com.ahmet.completejavadeveloper.collections.storeinventory;
 
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 

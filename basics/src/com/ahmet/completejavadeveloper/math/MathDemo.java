@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class MathDemo {
 
