@@ -1,5 +1,7 @@
 package com.ahmet.completejavadeveloper.io.writing;
 
+import java.util.StringJoiner;
+
 public record Course(String courseCode, String title) {
 
     public int getLectureCount() {
@@ -9,5 +11,12 @@ public record Course(String courseCode, String title) {
     @Override
     public String toString() {
         return "%s %s".formatted(courseCode, title);
+    }
+
+    public String toJson() {
+        return new StringJoiner(", ", "{", "}")
+                .add("\"courseCode\":\"" + courseCode + "\"")
+                .add("\"title\":\"" + title + "\"")
+                .toString();
     }
 }

@@ -2,6 +2,7 @@ package com.ahmet.completejavadeveloper.io.writing;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Student {
 
@@ -63,6 +64,10 @@ public class Student {
         return demographics.previousProgrammingExperience();
     }
 
+    public Map<String, CourseEngagement> getEngagementMap() {
+        return engagementMap;
+    }
+
     public int getInactiveMonths(String courseCode) {
 
         CourseEngagement info = engagementMap.get(courseCode);
@@ -120,8 +125,23 @@ public class Student {
                 studentId, demographics, coursesEnrolled, engagementData);
     }
 
-    public List<String> getEngagementRecords() {
+    public String toJson() {
+        StringJoiner courses = new StringJoiner(",", "[", "]");
+        for (Course c : coursesEnrolled) {
+            courses.add(c.toJson());
+        }
+        String engagement = engagementMap.values().stream()
+                .map(CourseEngagement::toJson)
+                .collect(Collectors.joining(",", "[", "]"));
+        return new StringJoiner(", ", "{", "}")
+                .add("\"studentId\":" + studentId)
+                .add("\"demographics\":" + demographics.toJson())
+                .add("\"coursesEnrolled\":" + courses)
+                .add("\"engagementMap\":" + engagement)
+                .toString();
+    }
 
+    public List<String> getEngagementRecords() {
         int i = 0;
         List<String> engagementData = new ArrayList<>();
         for (var engagement : engagementMap.values()) {
@@ -159,6 +179,4 @@ public class Student {
 
         return student;
     }
-
-
 }

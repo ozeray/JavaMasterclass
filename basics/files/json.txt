@@ -1,0 +1,106 @@
+[{
+	"studentId": 1,
+	"demographics": {
+		"countryCode": "US",
+		"enrolledMonth": 10,
+		"enrolledYear": 2021,
+		"ageAtEnrollment": 73,
+		"gender": "M",
+		"previousProgrammingExperience": true
+	},
+	"engagement": [{
+		"courseCode": "JMC",
+		"engagementType": "Lecture 10",
+		"enrollmentMonth": 10,
+		"enrollmentYear": 2021
+	}, {
+		"courseCode": "PYC",
+		"engagementType": "Lecture 14",
+		"enrollmentMonth": 10,
+		"enrollmentYear": 2021
+	}]
+}, {
+	"studentId": 2,
+	"demographics": {
+		"countryCode": "CN",
+		"enrolledMonth": 4,
+		"enrolledYear": 2015,
+		"ageAtEnrollment": 28,
+		"gender": "U",
+		"previousProgrammingExperience": false
+	},
+	"engagement": [{
+		"courseCode": "JMC",
+		"engagementType": "Lecture 6",
+		"enrollmentMonth": 4,
+		"enrollmentYear": 2015
+	}, {
+		"courseCode": "PYC",
+		"engagementType": "Lecture 11",
+		"enrollmentMonth": 4,
+		"enrollmentYear": 2015
+	}]
+}, {
+	"studentId": 3,
+	"demographics": {
+		"countryCode": "AU",
+		"enrolledMonth": 9,
+		"enrolledYear": 2020,
+		"ageAtEnrollment": 72,
+		"gender": "U",
+		"previousProgrammingExperience": false
+	},
+	"engagement": [{
+		"courseCode": "JMC",
+		"engagementType": "Lecture 13",
+		"enrollmentMonth": 9,
+		"enrollmentYear": 2020
+	}, {
+		"courseCode": "PYC",
+		"engagementType": "Lecture 1",
+		"enrollmentMonth": 9,
+		"enrollmentYear": 2020
+	}]
+}, {
+	"studentId": 4,
+	"demographics": {
+		"countryCode": "IN",
+		"enrolledMonth": 7,
+		"enrolledYear": 2021,
+		"ageAtEnrollment": 51,
+		"gender": "M",
+		"previousProgrammingExperience": true
+	},
+	"engagement": [{
+		"courseCode": "JMC",
+		"engagementType": "Lecture 10",
+		"enrollmentMonth": 7,
+		"enrollmentYear": 2021
+	}, {
+		"courseCode": "PYC",
+		"engagementType": "Lecture 3",
+		"enrollmentMonth": 7,
+		"enrollmentYear": 2021
+	}]
+}, {
+	"studentId": 5,
+	"demographics": {
+		"countryCode": "GB",
+		"enrolledMonth": 5,
+		"enrolledYear": 2017,
+		"ageAtEnrollment": 74,
+		"gender": "F",
+		"previousProgrammingExperience": false
+	},
+	"engagement": [{
+		"courseCode": "JMC",
+		"engagementType": "Lecture 6",
+		"enrollmentMonth": 5,
+		"enrollmentYear": 2017
+	}, {
+		"courseCode": "PYC",
+		"engagementType": "Lecture 14",
+		"enrollmentMonth": 5,
+		"enrollmentYear": 2017
+	}]
+}]
