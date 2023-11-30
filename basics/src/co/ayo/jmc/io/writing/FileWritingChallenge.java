@@ -6,7 +6,7 @@ import java.util.*;
 
 public class FileWritingChallenge {
     public static void printJson(List<Student> students) {
-        try (PrintWriter writer = new PrintWriter("basics/files/json.txt")) {
+        try (PrintWriter writer = new PrintWriter("basics/files/students.json")) {
 
             List<Map<String, Object>> studentsCollection = students.stream().map(student -> {
                 long id = student.getStudentId();

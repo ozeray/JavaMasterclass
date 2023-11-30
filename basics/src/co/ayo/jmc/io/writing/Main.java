@@ -24,7 +24,7 @@ public class Main {
         Course pymc = new Course("PYC", "Python Masterclass");
         List<Student> students = Stream
                 .generate(() -> Student.getRandomStudent(jmc, pymc))
-                .limit(5)
+                .limit(1000)
                 .toList();
 
         System.out.println(header);
