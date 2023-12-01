@@ -1,4 +1,4 @@
-package co.ayo.jmc.linkedlists;
+package co.ayo.jmc.collections.linkedlists;
 
 import java.util.LinkedList;
 
