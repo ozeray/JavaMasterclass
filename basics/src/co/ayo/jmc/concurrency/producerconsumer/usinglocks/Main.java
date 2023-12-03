@@ -1,38 +1,7 @@
-package co.ayo.jmc.concurrency.producerconsumer;
+package co.ayo.jmc.concurrency.producerconsumer.usinglocks;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-class MessageRepository {
-    private String message;
-    private boolean hasMessage = false;
-
-    public synchronized String read() {
-        while (!hasMessage) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        hasMessage = false;
-        notifyAll();
-        return message;
-    }
-
-    public synchronized void write(String msg) {
-        while (hasMessage) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        hasMessage = true;
-        notifyAll();
-        message = msg;
-    }
-}
 
 class MessageWriter implements Runnable {
     private final MessageRepository ongoingMessage;
@@ -73,7 +42,7 @@ class MessageReader implements Runnable {
     @Override
     public void run() {
         Random random = new Random();
-        String latestMessage = "";
+        String latestMessage;
 
         do {
             try {
@@ -90,8 +59,8 @@ class MessageReader implements Runnable {
 public class Main {
     public static void main(String[] args) {
         MessageRepository messageRepository = new MessageRepository();
-        Thread producer = new Thread(new MessageWriter(messageRepository));
-        Thread consumer = new Thread(new MessageReader(messageRepository));
+        Thread producer = new Thread(new MessageWriter(messageRepository), "Producer");
+        Thread consumer = new Thread(new MessageReader(messageRepository), "Consumer");
 
         producer.setUncaughtExceptionHandler((thread, exc) -> {
             System.out.println(thread.getName() + " caught exception: " + exc);
