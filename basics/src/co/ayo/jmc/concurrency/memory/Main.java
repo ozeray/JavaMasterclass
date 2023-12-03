@@ -6,10 +6,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Main {
 
     public static void main(String[] args) {
-        StopWatch stopWatch = new StopWatch(TimeUnit.SECONDS);
-        Thread purple = new Thread(() -> stopWatch.countDown(7), ThreadColor.ANSI_PURPLE.name());
-        Thread green = new Thread(stopWatch::countDown, ThreadColor.ANSI_GREEN.name());
-        Thread red = new Thread(stopWatch::countDown, ThreadColor.ANSI_RED.name());
+        StopWatch greenWatch = new StopWatch(TimeUnit.SECONDS);
+        StopWatch purpleWatch = new StopWatch(TimeUnit.SECONDS);
+        StopWatch redWatch = new StopWatch(TimeUnit.SECONDS);
+        Thread purple = new Thread(() -> purpleWatch.countDown(7), ThreadColor.ANSI_PURPLE.name());
+        Thread green = new Thread(greenWatch::countDown, ThreadColor.ANSI_GREEN.name());
+        Thread red = new Thread(redWatch::countDown, ThreadColor.ANSI_RED.name());
         green.start();
         red.start();
         purple.start();
@@ -17,7 +19,7 @@ public class Main {
         while (purple.isAlive()) {
             try {
                 Thread.sleep(250);
-                System.out.println("Purple: " + purple.getState() + " Green: " + green.getState() + " Red: " + red.getState());
+//                System.out.println("Purple: " + purple.getState() + " Green: " + green.getState() + " Red: " + red.getState());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -27,7 +29,7 @@ public class Main {
 
 class StopWatch {
     private TimeUnit timeUnit;
-    private int i;
+//    private int i;
 
     public StopWatch(TimeUnit timeUnit) {
         this.timeUnit = timeUnit;
@@ -46,7 +48,7 @@ class StopWatch {
         } catch (IllegalArgumentException ignore) { }
 
         String color = threadColor.color();
-        for (i = unitCount; i > 0; i--) {
+        for (int i = unitCount; i >= 0; i--) {
             try {
                 timeUnit.sleep(1);
             } catch (InterruptedException e) {
