@@ -22,7 +22,7 @@ public class ShoeWarehouse {
         this.orders = new ArrayList<>();
     }
 
-    synchronized void receiveOrder(Order order) {
+    public synchronized void receiveOrder(Order order) {
         while (orders.size() >= MAX_ORDERS) {
             try {
                 wait();
@@ -35,7 +35,7 @@ public class ShoeWarehouse {
         System.out.printf("%s - Order received(%s): %s%n", Thread.currentThread().getName(), order, shoes.entrySet());
     }
 
-    synchronized void fulfillOrder() {
+    public synchronized void fulfillOrder() {
         while (orders.isEmpty()) {
             try {
                 wait();

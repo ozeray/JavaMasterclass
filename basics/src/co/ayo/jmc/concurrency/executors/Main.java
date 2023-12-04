@@ -38,6 +38,14 @@ public class Main {
             multiExecutor.execute(() -> Main.sum(1, 10, 1, "red"));
             multiExecutor.execute(() -> Main.sum(10, 100, 10, "blue"));
             multiExecutor.execute(() -> Main.sum(2, 20, 2, "green"));
+        }
+    }
+
+    public static void cachedmain(String[] args) {
+        try (var multiExecutor = Executors.newCachedThreadPool()) {
+            multiExecutor.execute(() -> Main.sum(1, 10, 1, "red"));
+            multiExecutor.execute(() -> Main.sum(10, 100, 10, "blue"));
+            multiExecutor.execute(() -> Main.sum(2, 20, 2, "green"));
 
             try {
                 TimeUnit.SECONDS.sleep(1);
