@@ -1,7 +1,6 @@
 package co.ayo.jmc.concurrency.challenge;
 
 import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
 
 public class Main {
 

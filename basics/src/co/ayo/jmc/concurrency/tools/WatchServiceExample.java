@@ -2,7 +2,6 @@ package co.ayo.jmc.concurrency.tools;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.nio.file.spi.FileSystemProvider;
 import java.util.List;
 
 public class WatchServiceExample {

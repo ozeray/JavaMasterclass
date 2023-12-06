@@ -1,7 +1,6 @@
 package co.ayo.jmc.concurrency.memory;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 

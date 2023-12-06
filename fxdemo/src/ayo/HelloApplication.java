@@ -7,20 +7,32 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Path;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent parent = FXMLLoader.load(Path.of("fxdemo/src/ayo/hello-view.fxml").toUri().toURL());
-        Scene scene = new Scene(parent, 320, 240);
-        stage.setTitle("Hello!");
+        Parent root = FXMLLoader.load(Path.of("fxdemo/src/ayo/hello-view.fxml").toUri().toURL());
+
+//        GridPane root = new GridPane(0, 20.0);
+//        root.setAlignment(Pos.CENTER);
+//        Label greeting = new Label("Welcome to JavaFX!");
+//        greeting.setTextFill(Color.GREEN);
+//        greeting.setFont(new Font("Times New Roman", 70));
+//        root.getChildren().add(greeting);
+
+        Scene scene = new Scene(root, 750, 240);
+        stage.setTitle("Hello JavaFX!");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
         Application.launch();
+    }
+
+    @Override
+    public void init() throws Exception {
+        super.init();
     }
 }
