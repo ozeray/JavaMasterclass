@@ -21,7 +21,7 @@ public class MinMaxSum {
     }
 
     private static void miniMaxSum(List<Integer> numbers) {
-        long grandSum = numbers.stream().map(Long::new).reduce(0L, Long::sum);
+        long grandSum = numbers.stream().map(Integer::longValue).reduce(0L, Long::sum);
         long maxSum = 0, minSum = grandSum;
 
         for (Integer number : numbers) {
