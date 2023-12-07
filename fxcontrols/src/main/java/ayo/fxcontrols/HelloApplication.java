@@ -1,4 +1,4 @@
-package ayo.layouts;
+package ayo.fxcontrols;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +11,8 @@ import java.nio.file.Path;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Path.of("layouts/src/main/resources/ayo/layouts/hello-view.fxml").toUri().toURL());
-        Scene scene = new Scene(fxmlLoader.load(), 500, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(Path.of("fxcontrols/src/main/resources/ayo/fxcontrols/hello-view.fxml").toUri().toURL());
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

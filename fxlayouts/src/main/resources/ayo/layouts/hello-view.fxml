@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<!--<GridPane alignment="TOP_CENTER" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml"-->
+<!--          fx:controller="ayo.layouts.HelloController" gridLinesVisible="true">-->
+<!--    <padding>-->
+<!--        <Insets top="10" />-->
+<!--    </padding>-->
+<!--    <columnConstraints>-->
+<!--        <ColumnConstraints percentWidth="40.0" />-->
+<!--        <ColumnConstraints percentWidth="40.0" />-->
+<!--    </columnConstraints>-->
+<!--    <Button text="Button One" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />-->
+<!--    <Button text="Button Two" GridPane.rowIndex="0" GridPane.columnIndex="1" />-->
+<!--    <Button text="Button Three" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" />-->
+<!--    <Button text="Button Four" GridPane.rowIndex="1" GridPane.columnIndex="1" />-->
+<!--    <Button text="Button Five" GridPane.rowIndex="2" GridPane.columnIndex="0" />-->
+<!--</GridPane>-->
+<!--<HBox alignment="BOTTOM_RIGHT" xmlns:fx="http://javafx.com/fxml"-->
+<!--          fx:controller="ayo.layouts.HelloController"-->
+<!--    style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
+<!--    spacing="10" minWidth="100">-->
+<!--    <padding><Insets bottom="10" right="10"/></padding>-->
+<!--    <Button text="Okay" prefWidth="90" />-->
+<!--    <Button text="Cancel" prefWidth="90" />-->
+<!--    <Button text="Help" prefWidth="90" />-->
+<!--</HBox>-->
+<!--<BorderPane xmlns:fx="http://javafx.com/fxml"-->
+<!--            fx:controller="ayo.layouts.HelloController">-->
+<!--    <top>-->
+<!--        <Label text="This label is in the top position"-->
+<!--               BorderPane.alignment="CENTER"-->
+<!--               style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-style: dashed;" />-->
+<!--    </top>-->
+<!--    <left>-->
+<!--        <Label text="This label is in the left position" alignment="CENTER" />-->
+<!--    </left>-->
+<!--    <center>-->
+<!--        <Label text="This label is in the center position and has really looooooooooooooooooooooooooooooooong text" />-->
+<!--    </center>-->
+<!--    <right>-->
+<!--        <Label text="This label is in the right position" />-->
+<!--    </right>-->
+<!--    <bottom>-->
+<!--        <HBox spacing="10" alignment="BOTTOM_RIGHT">-->
+<!--            <padding><Insets bottom="10" right="10" /></padding>-->
+<!--            <Button text="Okay" prefWidth="90" />-->
+<!--            <Button text="Cancel" prefWidth="90" />-->
+<!--            <Button text="Help" prefWidth="90" />-->
+<!--        </HBox>-->
+<!--    </bottom>-->
+<!--</BorderPane>-->
+<!--<FlowPane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.layouts.HelloController"-->
+<!--          orientation="VERTICAL">-->
+<!--    <Button text="Button One" />-->
+<!--    <Button text="Button Two" />-->
+<!--    <Button text="Button Three" />-->
+<!--    <Button text="Button Four" />-->
+<!--    <Button text="Button Five" />-->
+<!--    <Button text="Button Six" />-->
+<!--    <Button text="Button Seven" />-->
+<!--    <Button text="Button Eight" />-->
+<!--    <Button text="Button Nine" />-->
+<!--    <Button text="Button Ten" />-->
+<!--</FlowPane>-->
+<!--<TilePane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.layouts.HelloController"-->
+<!--          orientation="HORIZONTAL" tileAlignment="BOTTOM_RIGHT">-->
+<!--    <Button text="Button One" />-->
+<!--    <Button text="Button Two" />-->
+<!--    <Button text="Button Three" />-->
+<!--    <Button text="Button Four" />-->
+<!--    <Button text="Button Five" />-->
+<!--    <Button text="Button Six" />-->
+<!--    <Button text="Button Seven" />-->
+<!--    <Button text="Button Eight" />-->
+<!--    <Button text="Button Nine" />-->
+<!--    <Button text="Button Ten" />-->
+<!--</TilePane>-->
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.layouts.HelloController">
+    <Button text="Button One" />
+    <Button text="Button Two" />
+    <Button text="Button Three Button Three" />
+</StackPane>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

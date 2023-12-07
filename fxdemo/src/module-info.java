@@ -1,4 +1,4 @@
-module ayo.fxdemo {
+module ayo {
     requires javafx.controls;
     requires javafx.fxml;
 
