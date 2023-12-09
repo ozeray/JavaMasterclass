@@ -156,6 +156,10 @@ public class MainWindowController {
         if (item != null) {
             if (keyEvent.getCode().equals(KeyCode.DELETE)) {
                 deleteItem(item);
+                if (filteredList.isEmpty()) {
+                    itemDetailsTextArea.clear();
+                    deadLineLabel.setText("");
+                }
             }
         }
     }
