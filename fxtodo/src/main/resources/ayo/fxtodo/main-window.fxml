@@ -37,6 +37,7 @@
                             <Tooltip text="Button Down: Show today's items only. Button Up: Show all items" showDelay="50ms" />
                         </tooltip>
                     </ToggleButton>
+                    <Button text="Open File" onAction="#handleOpenFile" />
                 </HBox>
             </ToolBar>
         </VBox>

@@ -11,13 +11,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 
 public class TodoData {
     private static final TodoData instance = new TodoData();
-    private static String fileName = "fxtodo/TodoListItems.txt";
+    private static final String fileName = "fxtodo/TodoListItems.txt";
     private ObservableList<TodoItem> todoItems;
-    private DateTimeFormatter formatter;
+    private final DateTimeFormatter formatter;
 
     public static TodoData getInstance() {
         return instance;
@@ -34,10 +33,9 @@ public class TodoData {
     public void loadToDoItems() throws IOException {
         todoItems = FXCollections.observableArrayList();
         Path path = Paths.get(fileName);
-        BufferedReader br = Files.newBufferedReader(path);
 
-        String input;
-        try {
+        try (BufferedReader br = Files.newBufferedReader(path)) {
+            String input;
             while ((input = br.readLine()) != null) {
                 String[] itemPieces = input.split("\t");
                 String shortDesc = itemPieces[0];
@@ -47,27 +45,17 @@ public class TodoData {
                 TodoItem item = new TodoItem(shortDesc, details, date);
                 todoItems.add(item);
             }
-        } finally {
-            if (br != null) {
-                br.close();
-            }
         }
     }
 
     public void storeTodoItems() throws IOException {
         Path path = Paths.get(fileName);
-        BufferedWriter bw = Files.newBufferedWriter(path);
-        try {
-            Iterator<TodoItem> iterator = todoItems.iterator();
-            while (iterator.hasNext()) {
-                TodoItem item = iterator.next();
-                bw.write(String.format("%s\t%s\t%s", item.getShortDescription(), item.getDetails(),
+        try (BufferedWriter bw = Files.newBufferedWriter(path)) {
+            for (TodoItem item : todoItems) {
+                bw.write(String.format("%s\t%s\t%s",
+                        item.getShortDescription(), item.getDetails(),
                         item.getDeadLine().format(formatter)));
                 bw.newLine();
-            }
-        } finally {
-            if (bw != null) {
-                bw.close();
             }
         }
     }

@@ -14,8 +14,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.util.Callback;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
@@ -180,6 +182,29 @@ public class MainWindowController {
         } else {
             filteredList.setPredicate(showAllItems);
             todoListView.getSelectionModel().select(selectedItem);
+        }
+    }
+
+    public void handleOpenFile() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter pdfFile = new FileChooser.ExtensionFilter("PDF File", "*.pdf");
+
+        fileChooser.setInitialFileName("initial");
+        fileChooser.setTitle("Save this file");
+        fileChooser.setSelectedExtensionFilter(pdfFile);
+//        fileChooser.showOpenDialog(mainBorderPane.getScene().getWindow());
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text File", "*.txt"),
+                new FileChooser.ExtensionFilter("Image File", "*.jpg", "*.png", ".gif"),
+//                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                pdfFile);
+        File file = fileChooser.showSaveDialog(mainBorderPane.getScene().getWindow());
+//        DirectoryChooser directoryChooser = new DirectoryChooser();
+//        File file = directoryChooser.showDialog(mainBorderPane.getScene().getWindow());
+        if (file != null) {
+            System.out.println("Chosen: " + file.getAbsolutePath());
+        } else {
+            System.out.println("Cancelled");
         }
     }
 }

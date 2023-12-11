@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<first_name>Nagihan</first_name>
+	<last_name>Kızılşar</last_name>
+	<phone_number>5529218233</phone_number>
+	<notes>Candır</notes>
+</contact>
+<contact>
+	<first_name>Ahmet Yaşar</first_name>
+	<last_name>Özer</last_name>
+	<phone_number>24124121</phone_number>
+	<notes>Baba</notes>
+</contact>
+</contacts>

@@ -9,10 +9,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Path;
 
-public class HelloApplication extends Application {
+public class TodoApplication extends Application {
+    private static TodoApplication todoApplication;
+
+    public static TodoApplication getInstance() {
+        return todoApplication;
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Path.of("fxtodo/src/main/resources/ayo/fxtodo/main-window.fxml").toUri().toURL());
+//        setUserAgentStylesheet(STYLESHEET_CASPIAN);
         Scene scene = new Scene(fxmlLoader.load(), 900, 500);
         stage.setTitle("Todo List");
         stage.setScene(scene);
@@ -30,6 +37,7 @@ public class HelloApplication extends Application {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        todoApplication = this;
     }
 
     @Override

@@ -1,0 +1,4 @@
+.button, .label {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
