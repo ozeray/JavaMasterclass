@@ -39,4 +39,9 @@
       </columns>
     </TableView>
   </center>
+  <bottom>
+    <VBox>
+      <ProgressBar fx:id="progressBar" prefWidth="${contacts.width}" visible="false" />
+    </VBox>
+  </bottom>
 </BorderPane>

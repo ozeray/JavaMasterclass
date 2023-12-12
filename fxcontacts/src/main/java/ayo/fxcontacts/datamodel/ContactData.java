@@ -32,18 +32,21 @@ public class ContactData {
 
     public void addContact(Contact contact) {
         contacts.add(contact);
+        saveContacts();
     }
 
     public void deleteContact(Contact contact) {
         contacts.remove(contact);
+        saveContacts();
     }
 
     public ObservableList<Contact> getContacts() {
         return contacts;
     }
 
-    public void loadContacts() {
+    public ObservableList<Contact> loadContacts() {
         try {
+            Thread.sleep(1000);
             // First, create a new XMLInputFactory
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             // Setup a new eventReader
@@ -105,12 +108,15 @@ public class ContactData {
             //e.printStackTrace();
         } catch (XMLStreamException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+        return contacts;
     }
 
     public void saveContacts() {
-
         try {
+            Thread.sleep(1000);
             // create an XMLOutputFactory
             XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
             // create XMLEventWriter
@@ -141,6 +147,8 @@ public class ContactData {
         } catch (XMLStreamException e) {
             System.out.println("Problem writing contact: " + e.getMessage());
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -25,6 +25,7 @@ public class ContactFormController {
 
     void updateContact(Contact contact) {
         setContactFields(contact);
+        ContactData.getInstance().saveContacts();
     }
 
     void populateForm(Contact contact) {

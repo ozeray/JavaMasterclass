@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contacts>
 <contact>
-	<first_name>Nagihan</first_name>
-	<last_name>Kızılşar</last_name>
-	<phone_number>5529218233</phone_number>
-	<notes>Candır</notes>
+	<first_name>Ahmet</first_name>
+	<last_name>Özer</last_name>
+	<phone_number>346876655</phone_number>
+	<notes>Babadu</notes>
 </contact>
 <contact>
-	<first_name>Ahmet Yaşar</first_name>
+	<first_name>Nagihan</first_name>
+	<last_name>Kızılşar</last_name>
+	<phone_number>23455652345</phone_number>
+	<notes>Can</notes>
+</contact>
+<contact>
+	<first_name>Eren Kerem</first_name>
 	<last_name>Özer</last_name>
-	<phone_number>24124121</phone_number>
-	<notes>Baba</notes>
+	<phone_number>21433524</phone_number>
+	<notes>3245676</notes>
 </contact>
 </contacts>
