@@ -1,4 +1,4 @@
-package ayo.fxcontacts.datamodel;
+package ayo.fxcontacts.common;
 
 import javafx.beans.property.SimpleStringProperty;
 

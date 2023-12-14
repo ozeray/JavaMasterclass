@@ -1,5 +1,6 @@
-package ayo.fxcontacts.datamodel;
+package ayo.fxcontacts.xml;
 
+import ayo.fxcontacts.common.Contact;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 public class ContactData {
-    private static final String CONTACTS_FILE = "fxcontacts/contacts.xml";
+    private static final String CONTACTS_FILE = "fxcontacts/xml/contacts.xml";
     private static final String CONTACT = "contact";
     private static final String FIRST_NAME = "first_name";
     private static final String LAST_NAME = "last_name";

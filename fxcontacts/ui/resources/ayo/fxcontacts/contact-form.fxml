@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<DialogPane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.fxcontacts.ContactFormController">
+<DialogPane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.fxcontacts.ui.ContactFormController">
     <content>
         <GridPane hgap="10" vgap="10" minWidth="330">
             <padding>

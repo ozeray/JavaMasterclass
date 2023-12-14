@@ -1,7 +1,7 @@
-package ayo.fxcontacts;
+package ayo.fxcontacts.ui;
 
-import ayo.fxcontacts.datamodel.Contact;
-import ayo.fxcontacts.datamodel.ContactData;
+import ayo.fxcontacts.common.Contact;
+import ayo.fxcontacts.xml.ContactData;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -142,7 +142,7 @@ public class MainWindowController {
 
     private FXMLLoader getFxmlLoader() {
         try {
-            return new FXMLLoader(Path.of("fxcontacts/src/main/resources/ayo/fxcontacts/contact-form.fxml").toUri().toURL());
+            return new FXMLLoader(Path.of("fxcontacts/ui/resources/ayo/fxcontacts/contact-form.fxml").toUri().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
             return null;

@@ -1,4 +1,4 @@
-package ayo.fxcontacts;
+package ayo.fxcontacts.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ import java.nio.file.Path;
 public class ContactsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Path.of("fxcontacts/src/main/resources/ayo/fxcontacts/main-window.fxml").toUri().toURL());
+        FXMLLoader fxmlLoader = new FXMLLoader(Path.of("fxcontacts/ui/resources/ayo/fxcontacts/main-window.fxml").toUri().toURL());
         Parent root = fxmlLoader.load();
         MainWindowController controller = fxmlLoader.getController();
         controller.populate();

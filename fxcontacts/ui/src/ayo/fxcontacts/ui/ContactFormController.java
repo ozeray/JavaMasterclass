@@ -1,7 +1,7 @@
-package ayo.fxcontacts;
+package ayo.fxcontacts.ui;
 
-import ayo.fxcontacts.datamodel.Contact;
-import ayo.fxcontacts.datamodel.ContactData;
+import ayo.fxcontacts.common.Contact;
+import ayo.fxcontacts.xml.ContactData;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.fxcontacts.MainWindowController" stylesheets="@styles.css">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ayo.fxcontacts.ui.MainWindowController" stylesheets="@styles.css">
   <top>
     <VBox>
       <MenuBar>
